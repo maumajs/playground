@@ -1,0 +1,28 @@
+{
+  "name": "comsoc-web",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "build": "mauma",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/faker": "^5.5.7",
+    "@types/node": "^15.12.5",
+    "@types/seedrandom": "^3.0.1",
+    "@types/slug": "^5.0.2"
+  },
+  "dependencies": {
+    "@snowpack/plugin-webpack": "^3.0.0",
+    "faker": "^5.5.3",
+    "seedrandom": "^3.0.5",
+    "slug": "^5.1.0"
+  }
+}

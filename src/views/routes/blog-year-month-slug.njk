@@ -1,0 +1,16 @@
+{% extends 'layout.njk' %}
+
+{% block title %}{{data.title}}{% endblock %}
+
+{% block main %}
+  <h1>{{data.title}}</h1>
+  <ul>
+    <li>date = {{params.year}}/{{params.month}}</li>
+    <li>slug = {{params.slug}}</li>
+    <li>tags = {{data.tags}}</li>
+    <li>categories = {{data.categories}}</li>
+  </ul>
+  <div>
+    {{data.content}}
+  </div>
+{% endblock %}

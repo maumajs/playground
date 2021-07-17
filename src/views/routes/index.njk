@@ -1,0 +1,17 @@
+{% extends 'layout.njk' %}
+
+{% block title %}{% endblock %}
+
+{% block main %}
+  <h1>Index</h1>
+  <p>{{'translations'|translate}}:</p>
+  <ul>
+    <li>{{'hello'|translate}} {{data.foo}}!</li>
+    <li>Variable: {{'variable'|translate(foo=data.foo)}} 👈 should show {{data.foo}}</li>
+  </ul>
+  <p>
+    <img src="/assets/cat-secretary.gif" alt="Secretary cat doing his job">
+  </p>
+  <link rel="stylesheet" href="@scss/main.scss"/>
+  <script type="module" src="@client/index.ts"></script>
+{% endblock %}

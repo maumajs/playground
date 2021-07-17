@@ -1,0 +1,7 @@
+{% extends 'layout.njk' %}
+
+{% block title %}Catch All ({{locale}}){% endblock %}
+
+{% block main %}
+  <p>{{params.all | dump}}</p>
+{% endblock %}

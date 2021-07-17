@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ locale }}">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/favicon.ico"/>
+  <title>
+    {% set title %}{% block title %}{% endblock %}{% endset %}
+    {% if title %}
+      {{ title }} - COMSOC
+    {% else %}
+      COMSOC - Comuniciaó Social
+    {% endif %}
+  </title>
+</head>
+<body>
+  <main>
+    <p>Locale: {{ locale }}</p>
+    <ul>
+      <li><a href="{{ url('index') }}">Home</a></li>
+      <li><a href="{{ url('us-about') }}">About</a></li>
+    </ul>
+    <ul>
+      {% for l in config.i18n.locales %}
+        {% if l.code !== locale and haslocale(l.code) %}
+          <li><a href="{{ localeurl(l.code) }}">{{ l.label}} ({{ l.code }})</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+    {% block main %}{% endblock %}
+  </main>
+  <script type="module" src="@client/layout.ts"></script>
+</body>
+</html>
