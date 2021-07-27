@@ -1,4 +1,5 @@
 import { ConfigFn, I18nStrategy } from '@mauma/ssg';
+import { categoryList } from './data/blog-posts';
 
 const config: ConfigFn = async () => {
   return {
@@ -27,6 +28,9 @@ const config: ConfigFn = async () => {
           variable: '{{foo}}',
         },
       },
+    },
+    configureNunjucks(nunjucks) {
+      nunjucks.addGlobal('categories', categoryList);
     }
   };
 };

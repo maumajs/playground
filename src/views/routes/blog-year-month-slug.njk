@@ -19,4 +19,12 @@
   <div>
     {{data.content}}
   </div>
+  <div>
+    All categories:
+    <ul>
+      {% for category in categories %}
+        <li><a href="{{url('blog-category-index', category=category)}}">{{category}}</a></li>
+      {% endfor %}
+    </ul>
+  </div>
 {% endblock %}
