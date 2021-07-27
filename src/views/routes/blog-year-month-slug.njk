@@ -8,7 +8,13 @@
     <li>date = {{params.year}}/{{params.month}}</li>
     <li>slug = {{params.slug}}</li>
     <li>tags = {{data.tags}}</li>
-    <li>categories = {{data.categories}}</li>
+    <li>categories:
+      <ul>
+        {% for category in data.categories %}
+          <a href="{{url('blog-category-index', category=category)}}">{{category}}</a>
+        {% endfor %}
+      </ul>
+    </li>
   </ul>
   <div>
     {{data.content}}

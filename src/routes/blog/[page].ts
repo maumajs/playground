@@ -1,12 +1,11 @@
 import { RoutePagination } from '@mauma/ssg';
-import { Post } from '../../data/blog-posts';
 
-export default RoutePagination<Post>({
+export default RoutePagination({
   route: 'blog-year-month-slug',
-  pageSize: 10,
-  async getPermalink() {
+})
+  .setName('blog-index')
+  .getPermalink(async () => {
     return {
       es: '/noticias/[page]',
-    }
-  }
-});
+    };
+  })

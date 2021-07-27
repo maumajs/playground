@@ -3,8 +3,8 @@ import seedrandom from 'seedrandom';
 
 const random = seedrandom('123');
 const total = 100;
-const categoryList = ['cat-a', 'cat-b', 'cat-c', 'cat-d', 'cat-e'];
-const tagList = ['tag-a', 'tag-b', 'tag-c', 'tag-d', 'tag-e'];
+export const categoryList = ['cat-a', 'cat-b', 'cat-c', 'cat-d', 'cat-e'];
+export const tagList = ['tag-a', 'tag-b', 'tag-c', 'tag-d', 'tag-e'];
 const posts: Map<string, Post[]> = new Map([
   ['ca', []],
   ['en', []],
@@ -33,7 +33,9 @@ function getRandomEls(value: string[]): string[] {
 for (let i = 0; i < total; i++) {
   const date = getRandomDate(new Date('2020-01-01T00:00:00'), new Date('2020-12-31T23:59:59'));
   const categories = getRandomEls(categoryList);
+  const categoriesEn = getRandomEls(categories); // Less categories for English
   const tags = getRandomEls(tagList);
+  const tagsEn = getRandomEls(tags); // Less tags for English
   const titleBase = i % 2 === 0 ? faker.commerce.productName() : faker.lorem.words(6);
 
   ['ca', 'en', 'es'].forEach((locale) => {
@@ -45,8 +47,8 @@ for (let i = 0; i < total; i++) {
       title,
       content,
       date,
-      categories,
-      tags
+      categories: locale === 'en' ? categoriesEn : categories,
+      tags: locale === 'en' ? tagsEn : tags,
     });
   });
 }

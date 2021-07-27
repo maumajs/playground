@@ -1,5 +1,5 @@
 import { Route } from '@mauma/ssg';
-import { RouteInstanceBase, RouteParams } from '../../../../../../mauma/dist/route/utils';
+import { RouteInstanceConfig } from '../../../../../../mauma/dist/route/types';
 import posts, { Post } from '../../../../data/blog-posts';
 
 const slug = require('slug');
@@ -17,7 +17,7 @@ export default Route<Post>()
     };
   })
   .getInstances(async () => {
-    const instances: RouteInstanceBase[] = [];
+    const instances: RouteInstanceConfig[] = [];
 
     for (let [locale, localePosts] of posts.entries()) {
       for (const post of localePosts) {

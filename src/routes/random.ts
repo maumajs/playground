@@ -5,6 +5,7 @@ interface RandomData {
 }
 
 export default Route<RandomData>()
+  .setPriority(-10)
   .disableI18n()
   .getPermalink(async () => {
     return (instance) => {
@@ -15,6 +16,10 @@ export default Route<RandomData>()
     return [
       { key: '0', params: {}, data: { id: Math.round(Math.random() * 10000) } },
       { key: '1', params: {}, data: { id: Math.round(Math.random() * 10000) } },
+      { key: '2', params: {}, data: { id: Math.round(Math.random() * 10000) } },
+      { key: '3', params: {}, data: { id: Math.round(Math.random() * 10000) } },
+      { key: '4', params: {}, data: { id: Math.round(Math.random() * 10000) } },
+      { key: '5', params: {}, data: { id: Math.round(Math.random() * 10000) } },
     ];
   })
   .render(async ({ data }) => {

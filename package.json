@@ -8,6 +8,7 @@
   },
   "scripts": {
     "build": "mauma",
+    "serve": "php -S localhost:8080 -t build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

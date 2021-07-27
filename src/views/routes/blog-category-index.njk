@@ -1,0 +1,29 @@
+{% extends 'layout.njk' %}
+
+{% block title %}Blog Category: {{params.category}}{% endblock %}
+
+{% block main %}
+  <ul>
+    <li><strong>{{params.category}}</strong></li>
+    <li>page = {{data.page}}/{{data.pages}}</li>
+    <li>
+      {% if data.hasPrev %}
+        <a href="{{data.prevURL}}">prev = {{data.prevURL}}</a>
+      {% else %}
+        prev = &mdash;
+      {% endif %}
+    </li>
+    <li>
+      {% if data.hasNext %}
+        <a href="{{data.nextURL}}">next = {{data.nextURL}}</a>
+      {% else %}
+        next = &mdash;
+      {% endif %}
+    </li>
+  </ul>
+  <ul>
+    {% for instance in data.instances %}
+      <li><a href="{{instance.permalink}}">{{instance.data.title}}</a></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

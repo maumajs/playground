@@ -8,9 +8,9 @@
   <title>
     {% set title %}{% block title %}{% endblock %}{% endset %}
     {% if title %}
-      {{ title }} - COMSOC
+      {{ title }} - Mauma Playground
     {% else %}
-      COMSOC - Comuniciaó Social
+      Mauma Playground
     {% endif %}
   </title>
 </head>
@@ -20,11 +20,20 @@
     <ul>
       <li><a href="{{ url('index') }}">Home</a></li>
       <li><a href="{{ url('us-about') }}">About</a></li>
+      <li><a href="{{ url('blog-index') }}">Blog</a></li>
+      <li><a href="{{ url('sitemap') }}">Sitemap</a></li>
+      <li><a href="{{ url('random-index') }}">Random</a></li>
     </ul>
     <ul>
       {% for l in config.i18n.locales %}
-        {% if l.code !== locale and haslocale(l.code) %}
-          <li><a href="{{ localeurl(l.code) }}">{{ l.label}} ({{ l.code }})</a></li>
+        {% if l.code !== locale %}
+          <li>
+            {% if haslocale(l.code) %}
+              <a href="{{ localeurl(l.code) }}">{{ l.label}} ({{ l.code }})</a>
+            {% else %}
+              {{ l.label}} ({{ l.code }})
+            {% endif %}
+          </li>
         {% endif %}
       {% endfor %}
     </ul>
