@@ -1,6 +1,7 @@
 import { Route } from '@mauma/ssg';
 
 export default Route()
+  .setPriority(-10)
   .getPermalink(async () => {
     return {
       es: '/atrapalo/[...all]',
@@ -9,6 +10,11 @@ export default Route()
   })
   .getInstances(async () => {
     return [
+      {
+        key: '1',
+        locale: 'ca',
+        params: { all: ['categoria', '20', 'etiqueta', 'foo'] },
+      },
       {
         key: '1',
         locale: 'es',

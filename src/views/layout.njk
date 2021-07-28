@@ -20,10 +20,20 @@
     <ul>
       <li><a href="{{ url('index') }}">Home</a></li>
       <li><a href="{{ url('us-about') }}">About</a></li>
-      <li><a href="{{ url('blog-index') }}">Blog</a></li>
+      <li><a href="{{ url('blog-index') }}">Blog (pagination)</a></li>
       <li><a href="{{ url('sitemap') }}">Sitemap</a></li>
-      <li><a href="{{ url('random-index') }}">Random</a></li>
-      <li><a href="{{ url('random-no-i18n-index') }}">Random (no i18n)</a></li>
+      <li><a href="{{ url('random-index') }}">Random (pagination: instances not i18n)</a></li>
+      <li><a href="{{ url('random-no-i18n-index') }}">Random (pagination: paginator not i18n)</a></li>
+      <li>
+        Catch-all:
+        <ul>
+          {% for instance in routes.get('catch-all') %}
+            {% if instance.locale === locale %}
+              <li><a href="{{instance.permalink}}">{{instance.params.all | join('/')}}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </li>
     </ul>
     <ul>
       {% for l in config.i18n.locales %}
